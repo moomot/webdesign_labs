@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JS LAB</title>
+	<style>
+	.orange, .blue {
+		height: 10px;
+		width: 10px;
+	}
+	.orange {
+		background: orange;
+	}
+	.blue {
+		background: darkblue;
+	}
+	</style>
+	<script type="text/javascript">
+		function task1() {
+			var surname = prompt("Enter your surname");
+			var name = prompt("Enter your name");
+			var lastname = prompt("Enter your lastname");
+			var confirmation = confirm(surname+ " " + name + " " + lastname + "\nIs it right?");
+			if(confirmation) {
+				alert("Good, " + surname+ " " + name + " " + lastname);
+			} else {
+				alert("Data error");
+			}
+		}
+
+		function task2() {
+			// Ифами делать - конченно =)
+			var hours = prompt("Введите часы");
+			var minutes = prompt("Введите минуты");
+			var date = new Date;
+			date.setHours(hours);
+			date.setMinutes(parseInt(minutes)+1);
+			alert("Через минуту будет " + date.getHours() + " час. и " + date.getMinutes() + " мин.");
+		}
+
+		function task4() {
+			var a = prompt("Введите первое число");
+			var b = prompt("Введите второе число");
+			var c = prompt("Введите операцию(+, -, *, /");
+			a = parseInt(a);
+			b = parseInt(b);
+			var result = 0;
+			switch(c) {
+				case "+":
+					result = a + b;
+					break;
+				case "-":
+					result = a - b;
+					break;
+				case "*":
+					result = a * b;
+					break;
+				case "/": {
+					if(b == 0) {
+						alert("Ошибка. Деление на 0");
+						return;
+					}
+					resuilt = a / b;
+					break;
+				}
+				default: {
+					alert("Ошибка операции");
+					return;
+				}
+			}
+			alert("Результат: "+result);
+		}
+
+	</script>
+</head>
+<body>
+	<a href="" onClick="task1();">Task1</a><br>
+	<a href="" onClick="task2();">Task2</a><br>
+
+	<hr />
+	<div class="task3">
+		<h3>Task 3</h3>
+		<div id="table">
+			<script type="text/javascript">
+				var str = "<table>";
+				var size = 15;
+				for(var i = 0; i < size; i++) {
+					str += "<tr>";
+					for(var k = 0; k <= i; k++) {
+						str += "<td class=\"orange\"></td>";	
+					}
+					for(var j = i; j < size-1; j++) {
+						str += "<td class=\"blue\"></td>";
+					}
+					str += "</tr>";
+				}
+				str += "</table>"
+				document.getElementById("table").innerHTML = str;
+			</script>
+		</div>
+	</div>
+	<hr />
+	<a href="" onClick="task4();">Task4</a><br>
+</body>
+</html>
